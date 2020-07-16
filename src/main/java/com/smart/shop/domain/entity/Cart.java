@@ -1,10 +1,10 @@
 package com.smart.shop.domain.entity;
 
-import java.math.BigDecimal;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+
 @Data
 public class Cart implements Serializable {
     private Integer cid;
@@ -14,6 +14,5 @@ public class Cart implements Serializable {
     private Integer isDel;
     private Timestamp createDate;
     private Timestamp updateDate;
-    private Double realityPrice;
 
 }

@@ -8,6 +8,8 @@ import lombok.Data;
 public class CartDto {
 	//c.num,s.title,s.reality_price,s.stock,s.pic
 	private Integer num;
+	private Integer isDel;
+	private Integer sid;
 	private String  title;
 	private Double realityPrice;
 	private String pic;

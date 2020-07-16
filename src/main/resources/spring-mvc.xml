@@ -8,6 +8,6 @@
     <mvc:annotation-driven>
         <!--    json-->
     </mvc:annotation-driven>
-
+    <mvc:default-servlet-handler/>
     <!--    文件上传相关-->
 </beans>

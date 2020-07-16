@@ -33,8 +33,10 @@ public class CartController {
 	}
 
 	//删除购物车商品信息
-	@RequestMapping("/updateCartById/{mid}/{sid}")
-	public ResultDate<Integer> updateCartById(@PathVariable() int mid,@PathVariable() int sid){
+	@RequestMapping("/updateCartById")
+	public ResultDate<Integer> updateCartById( Integer mid,  Integer sid){
+		System.out.println(mid);
+		System.out.println(sid);
 		Integer integer = cartService.updateCartById(mid, sid);
 		return ResultDate.success(StatusType.SUCCESS.getValue(), StatusType.SUCCESS.getMsg(), integer);
 	}
@@ -43,8 +45,9 @@ public class CartController {
 
 	//添加商品
 	@RequestMapping("/add")
-	public ResultDate<Integer> add(int mid,int num, Shop shop){
-		int count = cartService.add(mid, num, shop);
+	public ResultDate<Integer> add(int mid,int num, int sid){
+		int count = cartService.add(mid, num, sid);
 		return ResultDate.success(StatusType.SUCCESS.getValue(), StatusType.SUCCESS.getMsg(),count);
+
 	}
 }

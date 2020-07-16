@@ -22,7 +22,7 @@ public interface CartService {
 	public Integer updateCartById(int mid,int sid);
 
 	//添加商品
-	public Integer add(int mid,int num, Shop shop);
+	public Integer add(int mid,int num, int sid);
 
 	//查询商品
 	public Cart select(int mid,int sid);
