@@ -1,8 +1,6 @@
 package com.smart.shop.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smart.shop.domain.dto.CartDto;
-import com.smart.shop.domain.entity.Cart;
 import com.smart.shop.domain.entity.Shop;
 import com.smart.shop.service.CartService;
 import com.smart.shop.utils.ResultDate;
@@ -11,8 +9,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
