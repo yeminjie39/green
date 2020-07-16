@@ -36,7 +36,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public Integer add(int mid, int num, Shop shop) {
 		//查询是否存在商品
-		Cart cart = cartMapper.select(mid, shop.getSid());
+		Cart cart = cartMapper.select(mid, shop.getSId());
 		int count=0;
 		if (cart!=null){
 			//证明该商品存在,修改数量
@@ -48,7 +48,7 @@ public class CartServiceImpl implements CartService {
 			Cart ct = new Cart();
 			ct.setMid(mid);
 			ct.setNum(num);
-			ct.setSid(shop.getSid());
+			ct.setSid(shop.getSId());
 			count=cartMapper.insert(ct);
 		}
 

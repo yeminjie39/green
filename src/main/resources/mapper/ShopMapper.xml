@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smart.shop.mapper.ShopMapper">
+  <resultMap id="BaseResultMap" type="com.smart.shop.domain.entity.Shop">
+    <!--@mbg.generated-->
+    <!--@Table shop-->
+    <id column="s_id" jdbcType="INTEGER" property="sId" />
+    <result column="classify" jdbcType="VARCHAR" property="classify" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    s_id, classify, title, price, stock, pic, is_del, create_date, update_date
+  </sql>
+  <!-- 查询所有商品信息 -->
+  <select id="selectByShopAll" resultType="com.smart.shop.domain.entity.Shop">
+    SELECT * FROM shop WHERE is_del= 0;
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from shop
+    where s_id = #{sId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="s_id" keyProperty="sId" parameterType="com.smart.shop.domain.entity.Shop" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into shop (classify, title, price, 
+      stock, pic, is_del, 
+      create_date, update_date)
+    values (#{classify,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{stock,jdbcType=INTEGER}, #{pic,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="s_id" keyProperty="sId" parameterType="com.smart.shop.domain.entity.Shop" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classify != null">
+        classify,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classify != null">
+        #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.smart.shop.domain.entity.Shop">
+    <!--@mbg.generated-->
+    update shop
+    <set>
+      <if test="classify != null">
+        classify = #{classify,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="pic != null">
+        pic = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.smart.shop.domain.entity.Shop">
+    <!--@mbg.generated-->
+    update shop
+    set classify = #{classify,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      stock = #{stock,jdbcType=INTEGER},
+      pic = #{pic,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+</mapper>
